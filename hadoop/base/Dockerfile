@@ -1,7 +1,5 @@
-FROM  bigdata-baseimg:0.2
+FROM  bigdata-baseimg:1.0
 
-LABEL Description="This is a base image for Hadoop Cluster Nodes" \
-      Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
 
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
     07617D4968B34D8F13D56E20BE5AAA0BA210C095 \
@@ -37,7 +35,7 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
     4A6AC5C675B6155682729C9E08D51A0A7501105C \
     8B44A05C308955D191956559A5CEE20A90348D47
 
-ENV HADOOP_VERSION 2.8.1
+ENV HADOOP_VERSION 3.3.0
 ENV HADOOP_URL https://www.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
 RUN set -x \
     && curl -fSL "$HADOOP_URL" -o /tmp/hadoop.tar.gz \

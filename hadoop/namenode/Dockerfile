@@ -1,6 +1,5 @@
-FROM hadoop-base:0.2
-LABEL Description="This is the Name Node for Hadoop Cluster" \
-      Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
+FROM hadoop-base:1.0
+
 
 HEALTHCHECK CMD curl -f http://localhost:50070/ || exit 1
 

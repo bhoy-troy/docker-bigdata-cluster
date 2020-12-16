@@ -1,7 +1,5 @@
-FROM  hadoop-base:0.2
+FROM  hadoop-base:1.0
 
-LABEL Description="This is NodeManager for Hadoop Cluster" \
-      Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
 
 HEALTHCHECK CMD curl -f http://localhost:8042/ || exit 1
 
