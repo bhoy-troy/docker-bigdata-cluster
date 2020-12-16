@@ -1,7 +1,5 @@
-FROM bigdata-baseimg:0.2
+FROM bigdata-baseimg:1.0
 
-LABEL Description="This is a base image for Spark Nodes" \
-      Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
 
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
 	A864F0C3E5262F9A229B85D07B165D2A15E06093 \
@@ -11,8 +9,8 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
 	5AA90E72812FF2467904277D548F5FEE9E4FE3AF \
         FC8ED089 
 
-ENV SPARK_VERSION spark-2.2.0-bin-hadoop2.7
-ENV SPARK_URL https://www.apache.org/dist/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
+ENV SPARK_VERSION spark-2.4.1-bin-hadoop2.7
+ENV SPARK_URL https://archive.apache.org/dist/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
 
 RUN set -x \
     && curl -fSL "$SPARK_URL" -o /tmp/spark.tar.gz \
@@ -35,7 +33,7 @@ ENV HADOOP_CONF_DIR=$SPARK_HOME/conf
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-ENV PYSPARK_PYTHON=python3.6
+ENV PYSPARK_PYTHON=python3.8
 ENV PYTHONHASHSEED 1
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

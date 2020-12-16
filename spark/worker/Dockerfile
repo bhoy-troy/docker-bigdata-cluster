@@ -1,7 +1,4 @@
-FROM spark-base:0.2
-
-LABEL Description="This is spark worker node" \
-      Author="Pavan Keerthi <pavana.keerthi@gmail.com" 
+FROM spark-base:1.0
 
 HEALTHCHECK CMD curl -f http://localhost:8081/ || exit 1
 
