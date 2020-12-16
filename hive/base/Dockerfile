@@ -1,10 +1,6 @@
-FROM hadoop-base:0.2
+FROM hadoop-base:1.0
 
-LABEL Description="This is the base image for Hive Datawarehouse" \
-      Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
-
-
-ENV HIVE_VERSION 2.3.0
+ENV HIVE_VERSION 2.3.7
 
 ENV HIVE_HOME /opt/hive
 ENV PATH $HIVE_HOME/bin:$PATH
@@ -13,7 +9,7 @@ ENV HADOOP_HOME /opt/hadoop-$HADOOP_VERSION
 WORKDIR /opt
 
 #Install Hive and PostgreSQL JDBC
-RUN apt-get update && apt-get install -y wget procps && \
+RUN apt-get install -y wget procps && \
 	wget http://www-us.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
 	mv apache-hive-$HIVE_VERSION-bin hive && \

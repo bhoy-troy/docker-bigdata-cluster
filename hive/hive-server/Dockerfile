@@ -1,7 +1,5 @@
-FROM hive-base:0.2
+FROM hive-base:1.0
 
-LABEL Description="This is the  hive meta-store node for Hive Datawarehouse" \
-      Author="Pavan Keerthi <pavan.keerthi@gmail.com>"
 
 COPY startup.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/startup.sh
