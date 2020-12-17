@@ -1,5 +1,7 @@
 FROM  bigdata-baseimg:1.0
 
+RUN apt update && apt install -y gpg-agent
+
 RUN  curl https://downloads.apache.org/hadoop/common/KEYS | gpg --import
 
 ENV HADOOP_VERSION 3.3.0

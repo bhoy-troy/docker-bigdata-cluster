@@ -14,6 +14,7 @@ RUN set -x && \
 	    net-tools \
         software-properties-common \
         wget \
+        gpg-agent \
         python3-dev \
         python3-pip \
         openjdk-8-jdk && \
