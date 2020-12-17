@@ -2,7 +2,7 @@ version: "2.3"
 
 services:
   postgres:
-    image: bigdata-postgres:0.2
+    image: bigdata-postgres:1.0
     container_name: postgres
     hostname: postgres.bigdatacluster
     mem_limit: ${POSTGRES_DB_MEM_LIM}
@@ -14,7 +14,7 @@ services:
         aliases:
            - postgres.bigdatacluster.com
   redis:
-    image: bigdata-redis:0.2
+    image: bigdata-redis:1.0
     container_name: redis
     hostname: redis.bigdatacluster
     mem_limit: ${REDIS_MEM_LIM}
@@ -85,7 +85,7 @@ services:
       test: ["CMD-SHELL", "netstat -tuplen | grep 2181 || exit 1"]
 
   kafka1:
-    image: bigdata-kafka:0.2
+    image: bigdata-kafka:1.0
     container_name: kafka1
     hostname: kafka1.bigdatacluster
     mem_limit: ${KAFKA_MEM_LIM}
@@ -105,7 +105,7 @@ services:
       KAFKA_ID: 0
 
   kafka2:
-    image: bigdata-kafka:0.2
+    image: bigdata-kafka:1.0
     container_name: kafka2
     hostname: kafka2.bigdatacluster
     mem_limit: ${KAFKA_MEM_LIM}
@@ -125,7 +125,7 @@ services:
       KAFKA_ID: 1
 
   kafka3:
-    image: bigdata-kafka:0.2
+    image: bigdata-kafka:1.0
     container_name: kafka3
     hostname: kafka3.bigdatacluster
     mem_limit: ${KAFKA_MEM_LIM}
@@ -187,7 +187,7 @@ services:
       - airflow-worker1      
    
   airflow-webui:
-    image: airflow-webui:0.2
+    image: airflow-webui:1.0
     container_name: airflow-webui
     hostname: airflow-webui.bigdatacluster
     mem_limit: ${AIRFLOW_WEB_MEM_LIM}
@@ -212,7 +212,7 @@ services:
     command: webserver
 
   airflow-scheduler:
-    image: airflow-scheduler:0.2
+    image: airflow-scheduler:1.0
     container_name: airflow-scheduler
     hostname: airflow-scheduler.bigdatacluster
     mem_limit: ${AIRFLOW_SCH_MEM_LIM}
@@ -235,7 +235,7 @@ services:
     command: scheduler
 
   airflow-worker1:
-    image: airflow-worker:0.2
+    image: airflow-worker:1.0
     container_name: airflow-worker1
     hostname: airflow-worker1.bigdatacluster
     mem_limit: ${AIRFLOW_WRK_MEM_LIM}
@@ -259,7 +259,7 @@ services:
 
       
   hadoop-namenode:
-    image: hadoop-namenode:0.2
+    image: hadoop-namenode:1.0
     container_name: hadoop-namenode
     hostname: hadoop-namenode.bigdatacluster
     mem_limit: ${HADOOP_NN_MEM_LIM}
@@ -276,7 +276,7 @@ services:
       - ./bigdata-cluster.env
 
   hadoop-datanode1:
-    image: hadoop-datanode:0.2
+    image: hadoop-datanode:1.0
     container_name: hadoop-datanode1
     hostname: hadoop-datanode1.bigdatacluster
     mem_limit: ${HADOOP_DN_MEM_LIM}
@@ -294,7 +294,7 @@ services:
       - ./bigdata-cluster.env
 
   hadoop-datanode2:
-    image: hadoop-datanode:0.2
+    image: hadoop-datanode:1.0
     container_name: hadoop-datanode2
     hostname: hadoop-datanode2.bigdatacluster
     mem_limit: ${HADOOP_DN_MEM_LIM}
@@ -313,7 +313,7 @@ services:
 
 
   hadoop-datanode3:
-    image: hadoop-datanode:0.2
+    image: hadoop-datanode:1.0
     container_name: hadoop-datanode3
     hostname: hadoop-datanode3.bigdatacluster
     mem_limit: ${HADOOP_DN_MEM_LIM}
@@ -332,7 +332,7 @@ services:
 
 
   yarn-resourcemanager:
-    image: yarn-resourcemanager:0.2
+    image: yarn-resourcemanager:1.0
     container_name: yarn-resourcemanager
     hostname: yarn-resourcemanager.bigdatacluster
     mem_limit: ${YARN_RM_MEM_LIM}
@@ -348,7 +348,7 @@ services:
       - ./bigdata-cluster.env
   
   yarn-historyserver:
-    image: yarn-historyserver:0.2
+    image: yarn-historyserver:1.0
     container_name: yarn-historyserver
     hostname: yarn-historyserver.bigdatacluster
     mem_limit: ${YARN_HS_MEM_LIM}
@@ -366,7 +366,7 @@ services:
       - ./bigdata-cluster.env
   
   yarn-nodemanager1:
-    image: yarn-nodemanager:0.2
+    image: yarn-nodemanager:1.0
     container_name: yarn-nodemanager1
     hostname: yarn-nodemanager1.bigdatacluster
     mem_limit: ${YARN_NM_MEM_LIM}
@@ -382,7 +382,7 @@ services:
       - ./bigdata-cluster.env
 
   yarn-nodemanager2:
-    image: yarn-nodemanager:0.2
+    image: yarn-nodemanager:1.0
     container_name: yarn-nodemanager2
     hostname: yarn-nodemanager2.bigdatacluster
     mem_limit: ${YARN_NM_MEM_LIM}
@@ -398,7 +398,7 @@ services:
       - ./bigdata-cluster.env
 
   yarn-nodemanager3:
-    image: yarn-nodemanager:0.2
+    image: yarn-nodemanager:1.0
     container_name: yarn-nodemanager3
     hostname: yarn-nodemanager3.bigdatacluster
     mem_limit: ${YARN_NM_MEM_LIM}
@@ -414,7 +414,7 @@ services:
       - ./bigdata-cluster.env
   
   hive-metastore:
-    image: hive-metastore:0.2
+    image: hive-metastore:1.0
     container_name: hive-metastore
     hostname: hive-metastore.bigdatacluster
     mem_limit: ${HIVE_MS_MEM_LIM}
@@ -431,7 +431,7 @@ services:
     command: /opt/hive/bin/hive --service metastore
 
   hive-server:
-    image: hive-server:0.2
+    image: hive-server:1.0
     container_name: hive-server
     hostname: hive-server.bigdatacluster 
     mem_limit: ${HIVE_HS_MEM_LIM}
@@ -448,7 +448,7 @@ services:
 
 
   spark-master:
-    image: spark-master:0.2
+    image: spark-master:1.0
     container_name: spark-master
     hostname: spark-master.bigdatacluster
     mem_limit: ${SPARK_MS_MEM_LIM}
@@ -466,7 +466,7 @@ services:
       - ./bigdata-cluster.env
 
   spark-worker1:
-    image: spark-worker:0.2
+    image: spark-worker:1.0
     container_name: spark-worker1
     hostname: spark-worker1.bigdatacluster
     mem_limit: ${SPARK_WN_MEM_LIM}
@@ -486,7 +486,7 @@ services:
       - ./bigdata-cluster.env
 
   spark-worker2:
-    image: spark-worker:0.2
+    image: spark-worker:1.0
     container_name: spark-worker2
     hostname: spark-worker2.bigdatacluster
     mem_limit: ${SPARK_WN_MEM_LIM}
@@ -506,7 +506,7 @@ services:
       - ./bigdata-cluster.env
 
   spark-worker3:
-    image: spark-worker:0.2
+    image: spark-worker:1.0
     container_name: spark-worker3
     hostname: spark-worker3.bigdatacluster
     mem_limit: ${SPARK_WN_MEM_LIM}
@@ -530,79 +530,79 @@ volumes:
   redis_data:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/redis/data
+               mountpoint: ${PWD}/data1/dockervolumes/redis/data
   postgres_pgdata:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/postgres/pgdata
+               mountpoint: ${PWD}/data1/dockervolumes/postgres/pgdata
   airflow_dag:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/airflow/dags
+               mountpoint: ${PWD}/data1/dockervolumes/airflow/dags
   airflow_log:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/airflow/logs               
+               mountpoint: ${PWD}/data1/dockervolumes/airflow/logs
   zknode1_data:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/zookeeper/zknode1/data
+               mountpoint: ${PWD}/data1/dockervolumes/zookeeper/zknode1/data
   zknode1_log:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/zookeeper/zknode1/log
+               mountpoint: ${PWD}/data1/dockervolumes/zookeeper/zknode1/log
   zknode2_data:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/zookeeper/zknode2/data
+               mountpoint: ${PWD}/data1/dockervolumes/zookeeper/zknode2/data
   zknode2_log:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/zookeeper/zknode2/log
+               mountpoint: ${PWD}/data1/dockervolumes/zookeeper/zknode2/log
   zknode3_data:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/zookeeper/zknode3/data
+               mountpoint: ${PWD}/data1/dockervolumes/zookeeper/zknode3/data
   zknode3_log:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/zookeeper/zknode3/log 
+               mountpoint: ${PWD}/data1/dockervolumes/zookeeper/zknode3/log
   hadoop_namenode:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/hadoop/nn   
+               mountpoint: ${PWD}/data1/dockervolumes/hadoop/nn
   hadoop_datanode1:
           driver: local-persist
           driver_opts:
-               mountpoint: /data2/dockervolumes/hadoop/dn1
+               mountpoint: ${PWD}/data2/dockervolumes/hadoop/dn1
   hadoop_datanode2:
           driver: local-persist
           driver_opts:
-               mountpoint: /data2/dockervolumes/hadoop/dn2
+               mountpoint: ${PWD}/data2/dockervolumes/hadoop/dn2
   hadoop_datanode3:
           driver: local-persist
           driver_opts:
-               mountpoint: /data2/dockervolumes/hadoop/dn3
+               mountpoint: ${PWD}/data2/dockervolumes/hadoop/dn3
   hadoop_historyserver:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/yarn/hs
+               mountpoint: ${PWD}/data1/dockervolumes/yarn/hs
   spark_master_logs:
           driver: local-persist
           driver_opts:
-               mountpoint: /data1/dockervolumes/spark/master/logs
+               mountpoint: ${PWD}/data1/dockervolumes/spark/master/logs
   spark_worker1_logs:
          driver: local-persist
          driver_opts:
-               mountpoint: /data2/dockervolumes/spark/worker1/logs
+               mountpoint: ${PWD}/data2/dockervolumes/spark/worker1/logs
   spark_worker2_logs:
          driver: local-persist
          driver_opts:
-               mountpoint: /data2/dockervolumes/spark/worker2/logs
+               mountpoint: ${PWD}/data2/dockervolumes/spark/worker2/logs
   spark_worker3_logs:
          driver: local-persist
          driver_opts:
-               mountpoint: /data2/dockervolumes/spark/worker3/logs
+               mountpoint: ${PWD}/data2/dockervolumes/spark/worker3/logs
 networks:
   bigdatacluster:
     external: true
